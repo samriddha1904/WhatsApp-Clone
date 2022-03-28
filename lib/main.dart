@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'components/chattile.dart';
 import 'components/storybtn.dart';
-
-void main() {
-  runApp(const MyApp());
+import 'package:firebase_core/firebase_core.dart';
+Future main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp (const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -98,7 +100,7 @@ class _WhatsappState extends State<Whatsapp> {
                 child: ListView(
                   children: [
                     //Now let's create our chat tile custom widget
-                    chatTile(imageUrl[0], "userName", "msg", "9Am", false),
+                    chatTile(imageUrl[0], "UserName", "msg", "9Am", false),
                     chatTile(imageUrl[1], "userName", "msg", "8Am", true),
 
 
